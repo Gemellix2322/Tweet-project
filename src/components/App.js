@@ -4,6 +4,8 @@ import { handleInitialData } from "../actions/shared";
 import Dashboard from "./Dashboard";
 import NewTweet from "./NewTweet";
 import TweetPage from "./TweetPage";
+import Nav from "./Nav";
+import {Routes, Route} from "react-router-dom";
 
 
 const App = (props) => {
@@ -12,11 +14,16 @@ const App = (props) => {
   }, [])
 
   return( 
-    <div>
-      {props.loading === true ? null : <TweetPage match={{
-        params: {id: "2mb6re13q842wu8n106bhk"}
-      }}/>}
-    </div>
+    <Fragment>
+        <div className="container">
+          <Nav/>
+          <Routes>
+            <Route path="/" exact element={<Dashboard />} />
+            <Route path="/tweet/:id" element={<TweetPage />} />
+            <Route path="/new" element={<NewTweet />} />
+          </Routes>
+        </div>
+    </Fragment>
   )
 }
 
