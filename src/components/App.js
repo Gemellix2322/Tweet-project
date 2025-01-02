@@ -2,6 +2,8 @@ import { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Dashboard from "./Dashboard";
+import NewTweet from "./NewTweet";
+import TweetPage from "./TweetPage";
 
 
 const App = (props) => {
@@ -11,7 +13,9 @@ const App = (props) => {
 
   return( 
     <div>
-      {props.loading === true ? null : <Dashboard/>}
+      {props.loading === true ? null : <TweetPage match={{
+        params: {id: "2mb6re13q842wu8n106bhk"}
+      }}/>}
     </div>
   )
 }
