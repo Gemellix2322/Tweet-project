@@ -31,7 +31,7 @@ const NewTweet = ({dispatch, id}) => {
         <div>
             <h3 className="center">Compose new Tweet</h3>
             <form className="new-tweet" onSubmit={handleSubmit}>
-                <textarea placeholder="What's happening? " value={text} onChange={handleChange} className="textarea" maxLength={280}/>
+                <textarea placeholder="What's happening?" value={text} onChange={handleChange} className="textarea" maxLength={280}/>
                 {tweetLeft <= 100 && <div className="tweet-length">{tweetLeft}</div>}
                 <button className="btn" type="submit" disabled={text === ""}>
                     Submit
