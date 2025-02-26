@@ -1,6 +1,8 @@
+import { type } from "@testing-library/user-event/dist/type";
 import { saveLikeToggle, saveTweet} from "../utils/api";
 
 export const RECEIVE_TWEETS = "RECEIVE_TWEETS";
+export const DELETE_TWEETS = "DELETE_TWEETS"
 export const TOGGLE_TWEET = "TOGGLE_TWEET";
 export const ADD_TWEET = "ADD_TWEET";
 
@@ -38,6 +40,13 @@ function toggleTweet ({id, authedUser, hasLiked}) {
   };
 }
 
+function deleteTweet ({id}){
+  return{
+    type: DELETE_TWEETS,
+    id,
+  }
+}
+
 export function handleToggleTweet(info) {
   return (dispatch) => {
     dispatch(toggleTweet(info));
@@ -47,5 +56,11 @@ export function handleToggleTweet(info) {
       dispatch(toggleTweet(info));
       alert('Teve um erro ao curtir o tweet. Tente novamente!');
     })
+  }
+}
+
+export function handleDeleteTweet(info) {
+  return (dispatch) => {
+    dispatch(deleteTweet(info))
   }
 }

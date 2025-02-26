@@ -134,6 +134,16 @@ li {
   cursor: pointer;
 }
 
+.delete-icon {
+  border: none;
+  align-self: right;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  color: #969696;
+  cursor: pointer;
+}
+
 .heart-button {
   background: transparent;
   border: none;

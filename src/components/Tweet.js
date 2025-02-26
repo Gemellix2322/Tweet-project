@@ -4,11 +4,23 @@ import { TiArrowBackOutline,
     TiHeartOutline,
     TiHeartFullOutline,
 } from "react-icons/ti";
-import { handleToggleTweet } from "../actions/tweets";
+import { handleToggleTweet, handleDeleteTweet} from "../actions/tweets";
 import {Link, useNavigate } from "react-router";
+import { MdDeleteOutline } from "react-icons/md";
  
 const Tweet = (props) => {
     const navigate = useNavigate();
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+
+        const {dispatch, tweet} = props;
+        dispatch(
+            handleDeleteTweet({
+                id: tweet.id,
+            })
+        )
+    }
 
     const handleLike = (e) => {
         e.preventDefault();
@@ -61,6 +73,9 @@ const Tweet = (props) => {
                         )}
                     </button>
                     <span>{likes !== 0 && likes}</span>
+                    <button className="delete-icon" onClick={handleDelete}>
+                        <MdDeleteOutline className="tweet-icon"/>
+                    </button>
                 </div>
             </div>
         </Link>
